@@ -1,4 +1,11 @@
+# UI
 streamlit
+
+# LLM Libraries
 openai
 autogen-agentchat
 autogen-ext[openai]
+
+# Data Preprocessing
+pymupdf
+pandas
