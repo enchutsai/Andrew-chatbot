@@ -9,3 +9,9 @@ autogen-ext[openai]
 # Data Preprocessing
 pymupdf
 pandas
+
+# download df from online
+gdown
+
+# ML
+sklearn
