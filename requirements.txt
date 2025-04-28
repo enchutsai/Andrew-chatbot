@@ -15,3 +15,7 @@ gdown
 
 # ML
 sklearn
+gensim>=4.2.0
+
+# visualization
+plotly
