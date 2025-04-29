@@ -3,10 +3,11 @@ import pandas as pd
 from sklearn import model_selection, preprocessing, metrics
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neural_network import MLPClassifier
+import joblib
 
 # 下載與處理資料
-gdown.download("https://drive.google.com/uc?id=1jbb0HQ9oTZkRNK055AvXD3ya8_ZLtN9o", "Amazon_review.csv", quiet=False)
-df = pd.read_csv("Amazon_review.csv", delimiter=',', header=None)
+gdown.download("https://drive.google.com/uc?id=1jbb0HQ9oTZkRNK055AvXD3ya8_ZLtN9o", "datasets/Amazon_review.csv", quiet=False)
+df = pd.read_csv("datasets/Amazon_review.csv", delimiter=',', header=None)
 df.columns = ['text', 'label']
 
 # 分割資料
@@ -27,9 +28,7 @@ holdout_y_en = encoder.transform(holdout_y)
 classifier = MLPClassifier(hidden_layer_sizes=(2,1), max_iter=100, random_state=1)
 classifier.fit(xtrain, train_y_en)
 
-
-def predict_sentiment(text):
-    vec = tfidf_vect.transform([text])
-    pred = classifier.predict(vec)[0]
-    label = encoder.inverse_transform([pred])[0]
-    return label
+# 版本跟.venv不一致
+# joblib.dump(classifier, "trained_model/sentiment_mlpclassifier.pkl")
+# joblib.dump(tfidf_vect, "trained_model/sentiment_tfidf_vectorizer.pkl")
+# joblib.dump(encoder, "trained_model/sentiment_label_encoder.pkl")

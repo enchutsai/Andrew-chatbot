@@ -2,7 +2,7 @@ import streamlit as st
 from openai import OpenAI
 import time
 import re
-from sentiment import predict_sentiment
+from sentimentprediction_app import predict_sentiment
 
 placeholderstr = "Please input your command"
 user_name = "Andrew"
@@ -69,6 +69,13 @@ def main():
         else:
             return f"You say: {prompt}."
         
+    def generate_sentiment_prediction(prompt):
+
+        if re.search(r"情緒分析|sentiment analysis", prompt):
+            predicted_sentiment = predict_sentiment(prompt)
+            response2 = f"\n\n這則評論情緒為：**{predicted_sentiment}** 😊"
+            return response2
+        
     # Chat function section (timing included inside function)
     def chat(prompt: str): 
         st_c_chat.chat_message("user",avatar=user_image).write(prompt)
@@ -77,8 +84,11 @@ def main():
         response = generate_response(prompt)
         # response = f"You type: {prompt}"
 
-        predicted_sentiment = predict_sentiment(prompt)
-        response2 = f"\n這則評論情緒為：**{predicted_sentiment}** 😊"
+        response2 = generate_sentiment_prediction(prompt)
+        if not response2:
+            response2 = ''
+
+
 
         st.session_state.messages.append({"role": "assistant", "content": response + response2})
         st_c_chat.chat_message("assistant").write_stream(stream_data(response + response2))
