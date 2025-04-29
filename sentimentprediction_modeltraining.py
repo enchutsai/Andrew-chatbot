@@ -28,6 +28,7 @@ holdout_y_en = encoder.transform(holdout_y)
 classifier = MLPClassifier(hidden_layer_sizes=(2,1), max_iter=100, random_state=1)
 classifier.fit(xtrain, train_y_en)
 
-joblib.dump(classifier, "trained_model/sentiment_mlpclassifier.pkl")
-joblib.dump(tfidf_vect, "trained_model/sentiment_tfidf_vectorizer.pkl")
-joblib.dump(encoder, "trained_model/sentiment_label_encoder.pkl")
+# 版本跟.venv不一致
+# joblib.dump(classifier, "trained_model/sentiment_mlpclassifier.pkl")
+# joblib.dump(tfidf_vect, "trained_model/sentiment_tfidf_vectorizer.pkl")
+# joblib.dump(encoder, "trained_model/sentiment_label_encoder.pkl")

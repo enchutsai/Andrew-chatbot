@@ -6,16 +6,18 @@ openai
 autogen-agentchat
 autogen-ext[openai]
 
-# Data Preprocessing
+# Data Processing
+ckip-transformers
+jieba
+gensim
+numpy==1.23.0
+nltk
 pymupdf
 pandas
+scikit-learn
 
+# Visualization
+matplotlib
+plotly
 # download df from online
 gdown
-
-# ML
-sklearn
-gensim>=4.2.0
-
-# visualization
-plotly
