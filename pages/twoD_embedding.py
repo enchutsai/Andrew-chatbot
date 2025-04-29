@@ -1,6 +1,6 @@
 # pages/2d_embedding.py
 import streamlit as st
-from _2d_wordembedding import draw_wordembedding_2d   # 假設你把函式放在 pages/_2d_wordembedding.py
+from word2vec_utils._2d_wordembedding import draw_wordembedding_2d   # 假設你把函式放在 pages/_2d_wordembedding.py
 
 st.set_page_config(page_title="2D Embedding 可視化", layout="wide")
 st.title("📊 2D Word Embedding 可視化")

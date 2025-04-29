@@ -2,7 +2,7 @@ import streamlit as st
 from openai import OpenAI
 import time
 import re
-from sentimentprediction_app import predict_sentiment
+from sentiment_utils.sentimentprediction_app import predict_sentiment
 
 placeholderstr = "Please input your command"
 user_name = "Andrew"
